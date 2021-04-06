@@ -1,10 +1,10 @@
 import 'package:clean_framework/clean_framework.dart';
 import 'package:clean_framework/clean_framework_defaults.dart';
+import 'package:wallet/features/login/bloc/login_service_adapter.dart';
+import 'package:wallet/features/login/model/dto/login_credential_dto.dart';
+import 'package:wallet/features/login/model/login_entity.dart';
+import 'package:wallet/features/login/model/login_view_model.dart';
 import 'package:wallet/locator.dart';
-import 'package:wallet/login/bloc/login_service_adapter.dart';
-import 'package:wallet/login/model/dto/login_credential_dto.dart';
-import 'package:wallet/login/model/login_entity.dart';
-import 'package:wallet/login/model/login_view_model.dart';
 
 class LoginUseCase extends UseCase {
   Function(ViewModel) _viewModelCallBack;

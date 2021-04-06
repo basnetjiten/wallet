@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:wallet/login/api/login_service.dart';
-import 'package:wallet/login/api/login_service_response_model.dart';
+import 'package:wallet/features/login/api/login_service.dart';
+import 'package:wallet/features/login/api/login_service_response_model.dart';
+
 
 void main() {
   LoginService loginService;

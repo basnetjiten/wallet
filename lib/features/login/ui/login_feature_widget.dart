@@ -1,8 +1,8 @@
 import 'package:clean_framework/clean_framework.dart';
 import 'package:flutter/material.dart';
-import 'package:wallet/login/bloc/login_bloc.dart';
-import 'package:wallet/login/model/dto/login_credential_dto.dart';
-import 'package:wallet/login/ui/login_presenter.dart';
+import 'package:wallet/features/login/bloc/login_bloc.dart';
+import 'package:wallet/features/login/model/dto/login_credential_dto.dart';
+import 'package:wallet/features/login/ui/login_presenter.dart';
 class LoginFeatureWidget extends StatefulWidget {
   @override
   _LoginFeatureWidgetState createState() => _LoginFeatureWidgetState();

@@ -1,9 +1,9 @@
 import 'package:clean_framework/clean_framework.dart';
-import 'package:wallet/login/api/login_service.dart';
-import 'package:wallet/login/api/login_service_request_model.dart';
-import 'package:wallet/login/api/login_service_response_model.dart';
-import 'package:wallet/login/model/dto/login_credential_dto.dart';
-import 'package:wallet/login/model/login_entity.dart';
+import 'package:wallet/features/login/api/login_service.dart';
+import 'package:wallet/features/login/api/login_service_request_model.dart';
+import 'package:wallet/features/login/api/login_service_response_model.dart';
+import 'package:wallet/features/login/model/dto/login_credential_dto.dart';
+import 'package:wallet/features/login/model/login_entity.dart';
 
 class LoginServiceAdapter extends ServiceAdapter<LoginEntity,
     LoginServiceRequestModel, LoginServiceResponseModel, LoginService> {

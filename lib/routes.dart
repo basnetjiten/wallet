@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wallet/login/ui/login_feature_widget.dart';
+import 'package:wallet/features/login/ui/login_feature_widget.dart';
 
 abstract class LoginFinderRouter {
   static const String initialRoute = '/';

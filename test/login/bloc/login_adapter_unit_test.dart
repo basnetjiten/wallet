@@ -1,8 +1,7 @@
-import 'package:clean_framework/clean_framework.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:wallet/login/api/login_service_response_model.dart';
-import 'package:wallet/login/bloc/login_service_adapter.dart';
-import 'package:wallet/login/model/login_entity.dart';
+import 'package:wallet/features/login/api/login_service_response_model.dart';
+import 'package:wallet/features/login/bloc/login_service_adapter.dart';
+import 'package:wallet/features/login/model/login_entity.dart';
 
 
 void main() {

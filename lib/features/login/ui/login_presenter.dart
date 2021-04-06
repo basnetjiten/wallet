@@ -2,10 +2,10 @@ import 'package:clean_framework/clean_framework.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:wallet/login/bloc/login_bloc.dart';
-import 'package:wallet/login/model/dto/login_credential_dto.dart';
-import 'package:wallet/login/model/login_view_model.dart';
-import 'package:wallet/login/ui/login_screen.dart';
+import 'package:wallet/features/login/bloc/login_bloc.dart';
+import 'package:wallet/features/login/model/dto/login_credential_dto.dart';
+import 'package:wallet/features/login/model/login_view_model.dart';
+import 'package:wallet/features/login/ui/login_screen.dart';
 
 
 class LoginPresenter extends Presenter<LoginBloc, LoginViewModel, LoginScreen> {

@@ -1,7 +1,7 @@
 import 'package:clean_framework/clean_framework_defaults.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:wallet/login/bloc/login_bloc.dart';
-import 'package:wallet/login/model/login_view_model.dart';
+import 'package:wallet/features/login/bloc/login_bloc.dart';
+import 'package:wallet/features/login/model/login_view_model.dart';
 
 import 'login_bloc_mock.dart';
 

@@ -1,7 +1,7 @@
 
 import 'package:test/test.dart';
-import 'package:wallet/login/bloc/login_usecase.dart';
-import 'package:wallet/login/model/login_view_model.dart';
+import 'package:wallet/features/login/bloc/login_usecase.dart';
+import 'package:wallet/features/login/model/login_view_model.dart';
 
 void main() {
 

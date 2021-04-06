@@ -1,7 +1,7 @@
-
 import 'package:test/test.dart';
-import 'package:wallet/login/model/dto/login_credential_dto.dart';
-import 'package:wallet/login/model/login_entity.dart';
+import 'package:wallet/features/login/model/dto/login_credential_dto.dart';
+import 'package:wallet/features/login/model/login_entity.dart';
+
 
 void main() {
   LoginEntity loginEntity;

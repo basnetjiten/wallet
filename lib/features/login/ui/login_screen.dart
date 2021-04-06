@@ -1,6 +1,6 @@
 import 'package:clean_framework/clean_framework.dart';
 import 'package:flutter/material.dart';
-import 'package:wallet/login/model/login_view_model.dart';
+import 'package:wallet/features/login/model/login_view_model.dart';
 
 class LoginScreen extends Screen {
   final LoginViewModel viewModel;

@@ -1,6 +1,6 @@
 import 'package:clean_framework/clean_framework.dart';
-import 'package:wallet/login/api/login_service_response_model.dart';
-import 'package:wallet/login/model/dto/login_credential_dto.dart';
+import 'package:wallet/features/login/api/login_service_response_model.dart';
+import 'package:wallet/features/login/model/dto/login_credential_dto.dart';
 
 class LoginViewModel extends ViewModel {
   final UiLoginCredentialDto uiLoginCredentialDto;

@@ -1,8 +1,8 @@
 import 'package:clean_framework/clean_framework.dart';
-import 'package:wallet/login/api/login_service.dart';
-import 'package:wallet/login/bloc/login_usecase.dart';
-import 'package:wallet/login/model/dto/login_credential_dto.dart';
-import 'package:wallet/login/model/login_view_model.dart';
+import 'package:wallet/features/login/bloc/login_usecase.dart';
+import 'package:wallet/features/login/model/dto/login_credential_dto.dart';
+import 'package:wallet/features/login/model/login_view_model.dart';
+
 
 class LoginBloc extends Bloc {
   LoginUseCase _loginUseCase;
