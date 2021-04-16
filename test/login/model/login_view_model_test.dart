@@ -6,7 +6,7 @@ import 'package:wallet/features/login/model/login_view_model.dart';
 void main() {
   LoginViewModel loginViewModel;
   setUp((){
-    final uiLoginCredentialDto = UiLoginCredentialDto(title: "title", id: "id", password: "password");
+    final uiLoginCredentialDto = UiLoginCredentialDto( id: "id", password: "password");
 
     loginViewModel= LoginViewModel(
       uiLoginCredentialDto: uiLoginCredentialDto

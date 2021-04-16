@@ -8,23 +8,27 @@ class LoginBloc extends Bloc {
   LoginUseCase _loginUseCase;
 
   final loginViewModelPipe = Pipe<LoginViewModel>();
-  final uiLoginCredPipe = Pipe<UiLoginCredentialDto>();
+  final isEmptyFieldCheckerPipe = Pipe<bool>(canSendDuplicateData: true);
+  final uiLoginCredPipe = Pipe<UiLoginCredentialDto>(canSendDuplicateData: true);
 
   final submitPipe = EventPipe();
 
   LoginBloc() {
-    _loginUseCase =
-        LoginUseCase((viewModel) => loginViewModelPipe.send(viewModel));
+    _loginUseCase = LoginUseCase((viewModel) => loginViewModelPipe.send(viewModel));
     loginViewModelPipe.whenListenedDo(() {
       _loginUseCase.create();
     });
     uiLoginCredPipe.receive.listen(loginInputHandler);
+    isEmptyFieldCheckerPipe.receive.listen((event) {
+
+    });
     submitPipe.listen(submitHandler);
   }
 
 
 
   void loginInputHandler(UiLoginCredentialDto uiLoginCredentialDto) {
+    print("HEREEE"+uiLoginCredentialDto.id);
     _loginUseCase.updateLoginCred(uiLoginCredentialDto);
   }
 
@@ -37,7 +41,7 @@ class LoginBloc extends Bloc {
   @override
   void dispose() {
     loginViewModelPipe.dispose();
-   uiLoginCredPipe.dispose();
+    uiLoginCredPipe.dispose();
     submitPipe.dispose();
   }
 }

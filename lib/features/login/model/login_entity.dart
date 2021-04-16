@@ -10,19 +10,30 @@ class LoginEntity extends Entity {
       {List<EntityFailure> errors = const [],
       UiLoginCredentialDto uiLoginCredentialDto,
       LoginServiceResponseModel responseModel})
-      : uiLoginCredDto = uiLoginCredentialDto ?? UiLoginCredentialDto(title: '', id: '', password: ''),
+      : uiLoginCredDto =
+            uiLoginCredentialDto ?? UiLoginCredentialDto(id: '', password: ''),
         loginResponseModel = responseModel ?? null,
-
         super(errors: errors);
 
   @override
-  List<Object> get props => [uiLoginCredDto, loginResponseModel, errors,];
+  List<Object> get props => [
+        uiLoginCredDto,
+        loginResponseModel,
+        errors,
+      ];
 
   @override
-  merge({errors,UiLoginCredentialDto uiLoginCredentialDto, LoginServiceResponseModel responseModel}) {
+  merge(
+      {errors,
+      UiLoginCredentialDto uiLoginCredentialDto,
+      LoginServiceResponseModel responseModel}) {
     return LoginEntity(
         errors: errors ?? this.errors,
-       uiLoginCredentialDto: uiLoginCredentialDto ?? this.uiLoginCredDto,
+        uiLoginCredentialDto: uiLoginCredentialDto ?? this.uiLoginCredDto,
         responseModel: responseModel ?? this.loginResponseModel);
   }
+
+
+
+
 }

@@ -12,9 +12,9 @@ class LoginViewModel extends ViewModel {
       {this.uiLoginCredentialDto,
       this.loginResponseModel,
       this.serviceStatus = LoginServiceStatus.unknown,
-      this.dataStatus = LoginDataStatus.unknown})
-      : assert(uiLoginCredentialDto.id != null &&
-            uiLoginCredentialDto.password != null);
+      this.dataStatus = LoginDataStatus.valid})
+      /*: assert(uiLoginCredentialDto.id != null &&
+            uiLoginCredentialDto.password != null)*/;
 
   @override
   List<Object> get props =>
@@ -22,4 +22,4 @@ class LoginViewModel extends ViewModel {
 }
 
 enum LoginServiceStatus { initial, processing, success, fail, unknown }
-enum LoginDataStatus { valid, invalid, unknown }
+enum LoginDataStatus {Empty,valid, invalid, unknown }

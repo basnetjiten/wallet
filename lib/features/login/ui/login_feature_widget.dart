@@ -13,7 +13,7 @@ class _LoginFeatureWidgetState extends State<LoginFeatureWidget> {
 UiLoginCredentialDto _uiLoginCredentialDto;
 @override
   void initState() {
-    _uiLoginCredentialDto= UiLoginCredentialDto(id: '',title: '',password: '');
+    _uiLoginCredentialDto= UiLoginCredentialDto(id: '',password: '');
     super.initState();
   }
   @override

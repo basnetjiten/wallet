@@ -2,6 +2,7 @@ import 'package:clean_framework/clean_framework.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:wallet/features/home/ui/welcome.dart';
 import 'package:wallet/features/login/bloc/login_bloc.dart';
 import 'package:wallet/features/login/model/dto/login_credential_dto.dart';
 import 'package:wallet/features/login/model/login_view_model.dart';
@@ -26,16 +27,14 @@ class LoginPresenter extends Presenter<LoginBloc, LoginViewModel, LoginScreen> {
 
       print(viewModel.serviceStatus.toString());
       if (viewModel.serviceStatus == LoginServiceStatus.success) {
-        print(viewModel.loginResponseModel.toString());
-        _showUserDetailsDialog(
-            context, viewModel.loginResponseModel.toString());
 
-        return;
-      } else if (viewModel.serviceStatus == LoginServiceStatus.fail) {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Welcome()));
+
+      } /*else if (viewModel.serviceStatus == LoginServiceStatus.fail) {
         _showUserDetailsDialog(context, "Login Status Failed");
       } else if (viewModel.serviceStatus == LoginServiceStatus.unknown) {
-        _showUserDetailsDialog(context, "Login Status Unknown");
-      }
+        //_showUserDetailsDialog(context, "Login Status Unknown");
+      }*/
     });
     return LoginScreen(
         viewModel: viewModel,

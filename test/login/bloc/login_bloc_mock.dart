@@ -9,7 +9,7 @@ import 'package:wallet/features/login/model/login_view_model.dart';
 
 class LoginBlocBlocMock extends Fake implements LoginBloc {
   final loginViewModelPipe = Pipe<LoginViewModel>();
-final uiLoginCredentialDto = UiLoginCredentialDto(title: "title", id: "id", password: "password");
+  final uiLoginCredentialDto = UiLoginCredentialDto(id: "id", password: "password");
   LoginBlocBlocMock() {
     loginViewModelPipe.whenListenedDo(() {
       loginViewModelPipe.send(LoginViewModel(

@@ -2,16 +2,16 @@ import 'package:clean_framework/clean_framework.dart';
 import 'package:clean_framework/clean_framework_defaults.dart';
 import 'core/patch_simple_rest_api.dart';
 
-LoginAppLocator locator() => LoginAppLocator();
+WalletAppLocator locator() => WalletAppLocator();
 
-Logger logger() => LoginAppLocator().logger;
+Logger logger() => WalletAppLocator().logger;
 
 
-class LoginAppLocator implements Locator {
-  LoginAppLocator._();
+class WalletAppLocator implements Locator {
+  WalletAppLocator._();
 
-  factory LoginAppLocator() {
-    Locator.instance ??= LoginAppLocator._();
+  factory WalletAppLocator() {
+    Locator.instance ??= WalletAppLocator._();
     return Locator.instance;
   }
 

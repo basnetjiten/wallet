@@ -4,17 +4,18 @@ import 'package:wallet/features/login/bloc/login_service_adapter.dart';
 import 'package:wallet/features/login/model/dto/login_credential_dto.dart';
 import 'package:wallet/features/login/model/login_entity.dart';
 import 'package:wallet/features/login/model/login_view_model.dart';
+import 'package:wallet/features/login/model/mixins/login.dart';
 import 'package:wallet/locator.dart';
 
 class LoginUseCase extends UseCase {
   Function(ViewModel) _viewModelCallBack;
   RepositoryScope _scope;
-  LoginAppLocator _loginAppLocator;
+  WalletAppLocator _loginAppLocator;
 
   LoginUseCase(Function(ViewModel) viewModelCallBack)
       : assert(viewModelCallBack != null) {
     _viewModelCallBack = viewModelCallBack;
-    _loginAppLocator = LoginAppLocator();
+    _loginAppLocator = WalletAppLocator();
   }
 
   void create() async {
@@ -30,32 +31,25 @@ class LoginUseCase extends UseCase {
     } else {
       _scope.subscription = _notifySubscribers;
     }
-
-    //get the entity finally
-    //final entity = LoginAppLocator().repository.get<LoginEntity>(_scope);
-
-    //build viewModelCallBack based on the entity
-    /*if(entity.uiLoginCredDto.id!=''){
-      _viewModelCallBack(buildViewModelForServiceUpdate(entity));
-    }*/
   }
 
   void submit() async {
-    final entity = LoginAppLocator().repository.get<LoginEntity>(_scope);
-
-    if (entity.uiLoginCredDto.id == '' ||
-        entity.uiLoginCredDto.password == '') {
-      _viewModelCallBack(buildViewModelForLocalUpdateWithError(entity));
-    } else {
-      print(entity.uiLoginCredDto.password);
+    final entity = WalletAppLocator().repository.get<LoginEntity>(_scope);
+    if(entity.uiLoginCredDto!=null){
       _viewModelCallBack(buildViewModelProcessing(entity));
       //finally run the service adapter to request api for responseModel
       await _loginAppLocator.repository.runServiceAdapter(_scope,
           LoginServiceAdapter(loginCredentialDto: entity.uiLoginCredDto));
+    }else{
+      _viewModelCallBack(buildViewModelWithFieldError(entity));
+
     }
+
+
+
   }
 
-  void updateLoginCred(UiLoginCredentialDto credentialDto) async {
+  void updateLoginCred(UiLoginCredentialDto credentialDto) {
     updateViewModel(credentialDto);
   }
 
@@ -80,6 +74,7 @@ class LoginUseCase extends UseCase {
   LoginViewModel buildViewModelForLocalUpdate(LoginEntity entity) {
     final loginViewModel = LoginViewModel(
         serviceStatus: LoginServiceStatus.initial,
+        dataStatus: LoginDataStatus.valid,
         uiLoginCredentialDto: entity.uiLoginCredDto);
 
     return loginViewModel;
@@ -93,6 +88,12 @@ class LoginUseCase extends UseCase {
     return loginViewModel;
   }
 
+  LoginViewModel buildViewModelWithFieldError(LoginEntity entity) {
+    return LoginViewModel(
+        dataStatus: LoginDataStatus.invalid,
+        uiLoginCredentialDto: entity.uiLoginCredDto);
+  }
+
   LoginViewModel buildViewModelForLocalUpdateWithError(LoginEntity entity) {
     return LoginViewModel(
         dataStatus: LoginDataStatus.invalid,
@@ -101,9 +102,21 @@ class LoginUseCase extends UseCase {
 
   updateViewModel(UiLoginCredentialDto credentialDto) {
     final entity = _loginAppLocator.repository.get<LoginEntity>(_scope);
-
     final updatedEntity = entity.merge(uiLoginCredentialDto: credentialDto);
     _loginAppLocator.repository.update<LoginEntity>(_scope, updatedEntity);
-    _viewModelCallBack(buildViewModelForLocalUpdate(updatedEntity));
+    _viewModelCallBack(buildUpdatedViewModelWithFieldValue(updatedEntity));
+  }
+
+  ViewModel buildUpdatedViewModelWithFieldValue(LoginEntity updatedEntity) {
+    return LoginViewModel(
+        dataStatus: LoginDataStatus.unknown,
+        uiLoginCredentialDto: updatedEntity.uiLoginCredDto);
   }
 }
+
+///when users type id , password and hit the submit button
+////base even class
+//invalid credentials-->inline validation messages
+//servers errors-->inline validation messages
+//success-->success screen
+//the login credentials should not be cached

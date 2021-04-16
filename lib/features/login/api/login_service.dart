@@ -11,7 +11,7 @@ class LoginService
   LoginService()
       : super(
             method: RestMethod.post,
-            restApi: LoginAppLocator().api,
+            restApi: WalletAppLocator().api,
             path: 'user-login');
 
   @override

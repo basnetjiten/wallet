@@ -8,7 +8,7 @@ void main() {
   LoginEntity loginEntityMergeWithError;
 
   setUp((){
-    final uiLoginCredentialDto = UiLoginCredentialDto(title: "title", id: "id", password: "password");
+    final uiLoginCredentialDto = UiLoginCredentialDto(id: "id", password: "password");
 
     loginEntity=LoginEntity(
       uiLoginCredentialDto: uiLoginCredentialDto

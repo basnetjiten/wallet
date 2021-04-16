@@ -5,6 +5,7 @@ import 'package:wallet/features/login/api/login_service_response_model.dart';
 
 void main() {
   LoginService loginService;
+  //set a test for service request model (passed it to request)
   setUp(() {
     loginService = LoginService();
   });
